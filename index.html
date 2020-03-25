@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <title>Alarm Clock</title>
+  <script src="main.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Minimal ALarm Clock</h1>
+    <div class="blockcontainer">
+      <div class="blocks">
+        <p>
+          <input class="hmf" type="text" name="Hour" id="CurrentHour" placeholder="h">
+          <input class="hmf" type="text" name="Minutes" id="CurrentMinutes" placeholder="m">
+        </p>
+        <p><input type="submit" value="Set Current Time" id="SetTime"></p>
+      </div>
+      <div class="blocks">
+        <p>
+          <input class="hmf" type="text" name="Hour" id="AlarmHour" placeholder="h">
+          <input class="hmf" type="text" name="Minutes" id="AlarmMinutes" placeholder="m">
+        </p>
+        <p><input type="submit" value="Set Alarm Clock" id="SetAlarm"></p>
+      </div>
+    </div>
+
+  <div class="blockcontainer">
+    <div class="blocks">
+      <p><b>Current Time:</b></p>
+      <p><input type="text" name="CurrentTime" id="CurrentTime" readonly="readonly"></p>
+      <p><input type="submit" value="Add a minute" id="AddMinute"></p>
+    </div>
+    <div class="blocks">
+      <p><b>Alarm Time:</b></p>
+      <p><input type="text" name="AlarmTime" id="AlarmTime" readonly="readonly"></p>
+      <p><input type="submit" value="Stop Alarm" id="StopAlarm"></p>
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+
+</body>
+
+</html>
