@@ -8,25 +8,32 @@ function EventSetTime() {
   try {
     Hour = CurrentHour.value;
     Minutes = CurrentMinutes.value;
-    if (Hour > 23 || Minutes > 59) {
-      alert("Error: Insert a value between 00 and 23.");
-      CurrentHour.value = "";
-      CurrentMinutes.value = "";
-      return;
-    } else if (Hour < 0 || Minutes < 0) {
-      alert("Error: Insert a value between 00 and 23.");
-      CurrentHour.value = "";
-      CurrentMinutes.value = "";
-      return;
-    } else if (Hour == "" || Minutes == "") {
-      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
-      CurrentHour.value = "";
-      CurrentMinutes.value = "";
-      return;
+    var hourcheck = /^\d+$/.test(Hour);
+    var minutescheck = /^\d+$/.test(Minutes);
+    if(hourcheck && minutescheck){
+      if (Hour > 23 || Minutes > 59) {
+        alert("Error: Insert a value between 00 and 23.");
+        CurrentHour.value = "";
+        CurrentMinutes.value = "";
+        return;
+      } else if (Hour < 0 || Minutes < 0) {
+        alert("Error: Insert a value between 00 and 23.");
+        CurrentHour.value = "";
+        CurrentMinutes.value = "";
+        return;
+      } else if (Hour == "" || Minutes == "") {
+        alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+        CurrentHour.value = "";
+        CurrentMinutes.value = "";
+        return;
+      } else {
+        CurrentTime.value = Hour + ":" + Minutes;
+        Alarm();
+      }
     } else {
-      CurrentTime.value = Hour + ":" + Minutes;
-      Alarm();
+      alert("Error: Only numeric values are allowed.");
     }
+
   } catch (e) {
     alert("EventSetTime" + e);
   }
@@ -34,25 +41,32 @@ function EventSetTime() {
 
 function EventSetAlarm() {
   try {
-    if (AlarmHour.value > 23 || AlarmMinutes.value > 59) {
-      alert("Error: Insert a value between 00 and 23.");
-      AlarmHour.value = "";
-      AlarmMinutes.value = "";
-      return;
-    } else if (AlarmHour.value < 0 || AlarmMinutes.value < 0) {
-      alert("Error: Insert a value between 00 and 23.");
-      AlarmHour.value = "";
-      AlarmMinutes.value = "";
-      return;
-    } else if (AlarmHour.value == "" || AlarmMinutes.value == "") {
-      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
-      AlarmHour.value = "";
-      AlarmMinutes.value = "";
-      return;
+    var hourcheck = /^\d+$/.test(AlarmHour.value);
+    var minutescheck = /^\d+$/.test(AlarmMinutes.value);
+    if(hourcheck && minutescheck){
+      if (AlarmHour.value > 23 || AlarmMinutes.value > 59) {
+        alert("Error: Insert a value between 00 and 23.");
+        AlarmHour.value = "";
+        AlarmMinutes.value = "";
+        return;
+      } else if (AlarmHour.value < 0 || AlarmMinutes.value < 0) {
+        alert("Error: Insert a value between 00 and 23.");
+        AlarmHour.value = "";
+        AlarmMinutes.value = "";
+        return;
+      } else if (AlarmHour.value == "" || AlarmMinutes.value == "") {
+        alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+        AlarmHour.value = "";
+        AlarmMinutes.value = "";
+        return;
+      } else {
+        AlarmTime.value = AlarmHour.value + ":" + AlarmMinutes.value;
+        Alarm();
+      }
     } else {
-      AlarmTime.value = AlarmHour.value + ":" + AlarmMinutes.value;
-      Alarm();
+      alert("Error: Only numeric values are allowed.");
     }
+
   } catch (e) {
     alert("EventSetAlarm" + e);
   }
