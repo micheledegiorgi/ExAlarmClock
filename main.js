@@ -52,10 +52,8 @@ function EventSetTime() {
 
 function EventSetAlarm() {
   try {
-    AHour = AlarmHour.value;
-    AMinutes = AlarmMinutes.value;
-    AHour = Number(AHour);
-    AMinutes = Number(AMinutes);
+    AHour = Number(AlarmHour.value);
+    AMinutes = Number(AlarmMinutes.value);
     if (isNaN(AHour) || isNaN(AMinutes)) {
       alert("Error: Only numeric values are allowed.");
       AlarmHour.value = "";
