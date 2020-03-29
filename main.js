@@ -6,45 +6,43 @@ function Alarm() {
 
 function EventSetTime() {
   try {
-    Hour = CurrentHour.value;
-    Minutes = CurrentMinutes.value;
-    Hour = Number(Hour);
-    Minutes = Number(Minutes);
+    Hour = Number(CurrentHour.value);
+    Minutes = Number(CurrentMinutes.value);
     if (isNaN(Hour) || isNaN(Minutes)) {
       alert("Error: Only numeric values are allowed.");
       CurrentHour.value = "";
       CurrentMinutes.value = "";
     } else {
-      if (Hour > 23 || Minutes > 59) {
-        alert("Error: Insert a value between 00 and 23.");
-        CurrentHour.value = "";
-        CurrentMinutes.value = "";
-        return;
-      }
-      if (Hour < 0 || Minutes < 0) {
-        alert("Error: Insert a value between 00 and 23.");
-        CurrentHour.value = "";
-        CurrentMinutes.value = "";
-        return;
-      }
-      if (Hour == "" || Minutes == "") {
-        alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
-        CurrentHour.value = "";
-        CurrentMinutes.value = "";
-        return;
-      }
-      if (Hour < 10) {
-        if (Minutes < 10)
-          CurrentTime.value = "0" + Hour + ":" + "0" + Minutes;
-        else
-          CurrentTime.value = "0" + Hour + ":" + Minutes;
-      } else {
-        if (Minutes < 10)
-          CurrentTime.value = Hour + ":" + "0" + Minutes;
-        else
-          CurrentTime.value = Hour + ":" + Minutes;
-      }
-      Alarm();
+    if (Hour > 23 || Minutes > 59) {
+      alert("Error: Insert a value between 00 and 23.");
+      CurrentHour.value = "";
+      CurrentMinutes.value = "";
+      return;
+    }
+    if (Hour < 0 || Minutes < 0) {
+      alert("Error: Insert a value between 00 and 23.");
+      CurrentHour.value = "";
+      CurrentMinutes.value = "";
+      return;
+    }
+    if (CurrentHour.value == "" || CurrentMinutes.value == "") {
+      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+      CurrentHour.value = "";
+      CurrentMinutes.value = "";
+      return;
+    }
+    if (Hour < 10) {
+      if (Minutes < 10)
+        CurrentTime.value = "0" + Hour + ":" + "0" + Minutes;
+      else
+        CurrentTime.value = "0" + Hour + ":" + Minutes;
+    } else {
+      if (Minutes < 10)
+        CurrentTime.value = Hour + ":" + "0" + Minutes;
+      else
+        CurrentTime.value = Hour + ":" + Minutes;
+    }
+    Alarm();
     }
 
   } catch (e) {
@@ -63,36 +61,36 @@ function EventSetAlarm() {
       AlarmHour.value = "";
       AlarmMinutes.value = "";
     } else {
-      if (AHour > 23 || AMinutes > 59) {
-        alert("Error: Insert a value between 00 and 23.");
-        AlarmHour.value = "";
-        AlarmMinutes.value = "";
-        return;
-      }
-      if (AHour < 0 || AMinutes < 0) {
-        alert("Error: Insert a value between 00 and 23.");
-        AlarmHour.value = "";
-        AlarmMinutes.value = "";
-        return;
-      }
-      if (AHour == "" || AMinutes == "") {
-        alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
-        AlarmHour.value = "";
-        AlarmMinutes.value = "";
-        return;
-      }
-      if (AHour < 10) {
-        if (AMinutes < 10)
-          AlarmTime.value = "0" + AHour + ":" + "0" + AMinutes;
-        else
-          AlarmTime.value = "0" + AHour + ":" + AMinutes;
-      } else {
-        if (AMinutes < 10)
-          AlarmTime.value = AHour + ":" + "0" + AMinutes;
-        else
-          AlarmTime.value = AHour + ":" + AMinutes;
-      }
-      Alarm();
+    if (AHour > 23 || AMinutes > 59) {
+      alert("Error: Insert a value between 00 and 23.");
+      AlarmHour.value = "";
+      AlarmMinutes.value = "";
+      return;
+    }
+    if (AHour < 0 || AMinutes < 0) {
+      alert("Error: Insert a value between 00 and 23.");
+      AlarmHour.value = "";
+      AlarmMinutes.value = "";
+      return;
+    }
+    if (AlarmHour.value == "" || AlarmMinutes.value == "") {
+      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+      AlarmHour.value = "";
+      AlarmMinutes.value = "";
+      return;
+    }
+    if (AHour < 10) {
+      if (AMinutes < 10)
+        AlarmTime.value = "0" + AHour + ":" + "0" + AMinutes;
+      else
+        AlarmTime.value = "0" + AHour + ":" + AMinutes;
+    } else {
+      if (AMinutes < 10)
+        AlarmTime.value = AHour + ":" + "0" + AMinutes;
+      else
+        AlarmTime.value = AHour + ":" + AMinutes;
+    }
+    Alarm();
     }
 
   } catch (e) {
