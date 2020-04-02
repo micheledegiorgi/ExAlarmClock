@@ -1,13 +1,21 @@
 function Alarm() {
   if (CurrentTime.value != null && AlarmTime.value != null)
-    if (CurrentTime.value == AlarmTime.value)
+    if (CurrentTime.value == AlarmTime.value){
       Audio.play();
+      alert("Wake up!");
+    }
 }
 
 function EventSetTime() {
   try {
     Hour = Number(CurrentHour.value);
     Minutes = Number(CurrentMinutes.value);
+    if (CurrentHour.value == "" || CurrentMinutes.value == "") {
+      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+      CurrentHour.value = "";
+      CurrentMinutes.value = "";
+      return;
+    }
     if (isNaN(Hour) || isNaN(Minutes)) {
       alert("Error: Only numeric values are allowed.");
       CurrentHour.value = "";
@@ -21,12 +29,6 @@ function EventSetTime() {
     }
     if (Hour < 0 || Minutes < 0) {
       alert("Error: Insert a value between 00 and 23.");
-      CurrentHour.value = "";
-      CurrentMinutes.value = "";
-      return;
-    }
-    if (CurrentHour.value == "" || CurrentMinutes.value == "") {
-      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
       CurrentHour.value = "";
       CurrentMinutes.value = "";
       return;
@@ -54,6 +56,12 @@ function EventSetAlarm() {
   try {
     AHour = Number(AlarmHour.value);
     AMinutes = Number(AlarmMinutes.value);
+    if (AlarmHour.value == "" || AlarmMinutes.value == "") {
+      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
+      AlarmHour.value = "";
+      AlarmMinutes.value = "";
+      return;
+    }
     if (isNaN(AHour) || isNaN(AMinutes)) {
       alert("Error: Only numeric values are allowed.");
       AlarmHour.value = "";
@@ -67,12 +75,6 @@ function EventSetAlarm() {
     }
     if (AHour < 0 || AMinutes < 0) {
       alert("Error: Insert a value between 00 and 23.");
-      AlarmHour.value = "";
-      AlarmMinutes.value = "";
-      return;
-    }
-    if (AlarmHour.value == "" || AlarmMinutes.value == "") {
-      alert("Error: One or more fields are empty! Insert a value between 00 and 23.");
       AlarmHour.value = "";
       AlarmMinutes.value = "";
       return;
